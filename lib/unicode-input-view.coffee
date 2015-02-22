@@ -15,6 +15,7 @@ class UnicodeInputView extends View
 
     atom.commands.add 'atom-text-editor', 'unicode-input:toggle', => @toggle()
 
+    @hexValueInput.on 'blur', => @cancel()
     atom.commands.add @hexValueInput.element, 'core:confirm', => @confirm()
     atom.commands.add @hexValueInput.element, 'core:cancel', => @cancel()
 
