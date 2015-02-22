@@ -1,0 +1,5 @@
+'.platform-darwin atom-text-editor':
+  'cmd-shift-u': 'unicode-input:toggle'
+
+'.platform-linux .platfirm-windows atom-text-editor':
+  'ctrl-shift-u': 'unicode-input:toggle'
