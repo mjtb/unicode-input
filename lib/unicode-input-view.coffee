@@ -11,6 +11,7 @@ class UnicodeInputView extends View
       @div class: 'message', outlet: 'hexValueDisplay'
 
   initialize: ->
+    @hexValueDisplay.text('Unicode character: ')
     @panel = atom.workspace.addModalPanel(item: this, visible: false)
 
     atom.commands.add 'atom-text-editor', 'unicode-input:toggle', => @toggle()
@@ -22,7 +23,7 @@ class UnicodeInputView extends View
     @hexValueInput.getModel().getBuffer().onDidChange => @storeInputValue()
 
   storeInputValue: ->
-    @hexValueDisplay.text(@findUnicodeChracter(@hexValueInput.getText()))
+    @hexValueDisplay.text('Unicode character: ' + @findUnicodeChracter(@hexValueInput.getText()))
 
   findUnicodeChracter: (text) ->
     return String.fromCharCode(parseInt(text, 16))
