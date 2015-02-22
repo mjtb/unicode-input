@@ -8,6 +8,7 @@ class UnicodeInputView extends View
     @div =>
       @h1 'Unicode Input'
       @subview 'hexValueInput', new TextEditorView(mini: true, placeHolderText: 'Unicode Hex Value')
+      @div class: 'message', outlet: 'hexValueDisplay'
 
   initialize: ->
     @panel = atom.workspace.addModalPanel(item: this, visible: false)
@@ -16,6 +17,14 @@ class UnicodeInputView extends View
 
     atom.commands.add @hexValueInput.element, 'core:confirm', => @confirm()
     atom.commands.add @hexValueInput.element, 'core:cancel', => @cancel()
+
+    @hexValueInput.getModel().getBuffer().onDidChange => @storeInputValue()
+
+  storeInputValue: ->
+    @hexValueDisplay.text(@findUnicodeChracter(@hexValueInput.getText()))
+
+  findUnicodeChracter: (text) ->
+    return String.fromCharCode(parseInt(text, 16))
 
   toggle: ->
     if @panel.isVisible()
@@ -36,7 +45,7 @@ class UnicodeInputView extends View
     @cancel()
 
     return unless editor and hexValue.length
-    editor.insertText(String.fromCharCode(parseInt(hexValue, 16)))
+    editor.insertText(@findUnicodeChracter(hexValue))
 
   storeFocusedElement: ->
     @previouslyFocusedElement = $(document.activeElement)
