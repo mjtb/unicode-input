@@ -7,7 +7,7 @@ class UnicodeInputView extends View
   @content: ->
     @div =>
       @h1 'Unicode Input'
-      @subview 'hexValueInput', new TextEditorView(mini: true, placeHolderText: 'Unicode Hex Value')
+      @subview 'miniEditor', new TextEditorView(mini: true, placeHolderText: 'Unicode Hex Value')
       @div class: 'message', outlet: 'hexValueDisplay'
 
   initialize: ->
@@ -16,14 +16,14 @@ class UnicodeInputView extends View
 
     atom.commands.add 'atom-text-editor', 'unicode-input:toggle', => @toggle()
 
-    @hexValueInput.on 'blur', => @cancel()
-    atom.commands.add @hexValueInput.element, 'core:confirm', => @confirm()
-    atom.commands.add @hexValueInput.element, 'core:cancel', => @cancel()
+    @miniEditor.on 'blur', => @cancel()
+    atom.commands.add @miniEditor.element, 'core:confirm', => @confirm()
+    atom.commands.add @miniEditor.element, 'core:cancel', => @cancel()
 
-    @hexValueInput.getModel().getBuffer().onDidChange => @storeInputValue()
+    @miniEditor.getModel().getBuffer().onDidChange => @storeInputValue()
 
   storeInputValue: ->
-    @hexValueDisplay.text('Unicode character: ' + @findUnicodeChracter(@hexValueInput.getText()))
+    @hexValueDisplay.text('Unicode character: ' + @findUnicodeChracter(@miniEditor.getText()))
 
   findUnicodeChracter: (text) ->
     return String.fromCharCode(parseInt(text, 16))
@@ -35,13 +35,13 @@ class UnicodeInputView extends View
       @show()
 
   cancel: ->
-    hexValueInputFocused = @hexValueInput.hasFocus()
-    @hexValueInput.setText('')
+    hexValueInputFocused = @miniEditor.hasFocus()
+    @miniEditor.setText('')
     @panel.hide()
     @restoreFocus()
 
   confirm: ->
-    hexValue = @hexValueInput.getText()
+    hexValue = @miniEditor.getText()
     editor = atom.workspace.getActiveEditor()
 
     @cancel()
@@ -58,4 +58,4 @@ class UnicodeInputView extends View
   show: ->
     @storeFocusedElement()
     @panel.show()
-    @hexValueInput.focus()
+    @miniEditor.focus()
