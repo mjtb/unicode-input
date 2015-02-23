@@ -1,3 +1,8 @@
+## 0.4.0
+
+* :bug: Keybindings weren't working on linux/windows from a missing comma
+* Change keybindings from `ctrl-shift-u` to `alt-shift-u` in Linux/Windows
+
 ## 0.3.1
 
 * :bug: Don't allow colon as a valid input character
