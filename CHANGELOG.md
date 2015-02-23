@@ -1,3 +1,7 @@
+## 0.3.1
+
+* :bug: Don't allow colon as a valid input character
+
 ## 0.3.0
 
 * Only allow hexadecimal digit input
