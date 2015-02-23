@@ -1,7 +1,7 @@
 {
   "name": "unicode-input",
   "main": "./lib/unicode-input-view",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Enter Unicode character by hex value",
   "activationCommands": {
     "atom-workspace": "unicode-input:toggle"
