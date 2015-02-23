@@ -23,7 +23,7 @@ class UnicodeInputView extends View
     @miniEditor.getModel().getBuffer().onDidChange => @storeInputValue()
 
     @miniEditor.getModel().onWillInsertText ({cancel, text}) =>
-      cancel() unless text.match(/[0-9a-fA-F:]/)
+      cancel() unless text.match(/[0-9a-fA-F]/)
 
   storeInputValue: ->
     @hexValueDisplay.text('Unicode character: ' + @findUnicodeChracter(@miniEditor.getText()))
