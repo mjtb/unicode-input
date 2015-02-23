@@ -1,3 +1,7 @@
+## 0.3.0
+
+* Only allow hexadecimal digit input
+
 ## 0.2.0
 
 * Fix height of panel (#1)
