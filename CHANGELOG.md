@@ -1,3 +1,7 @@
+## 0.2.0
+
+* Fix height of panel (#1)
+
 ## 0.1.1
 
 * Fix link to screenshot in README
