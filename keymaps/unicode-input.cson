@@ -1,5 +1,5 @@
 '.platform-darwin atom-text-editor':
   'cmd-shift-u': 'unicode-input:toggle'
 
-'.platform-linux, .platfirm-windows atom-text-editor':
+'.platform-linux atom-tex-editor, .platfirm-win32 atom-text-editor':
   'alt-shift-u': 'unicode-input:toggle'
