@@ -1,3 +1,7 @@
+## 0.4.1
+
+* :bug: Fix keybinding on windows
+
 ## 0.4.0
 
 * :bug: Keybindings weren't working on linux/windows from a missing comma
