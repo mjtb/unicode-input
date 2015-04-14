@@ -1,3 +1,7 @@
+## 0.4.2
+
+* :bug: Fix typo in keymap for windows (#2)
+
 ## 0.4.1
 
 * :bug: Fix keybinding on windows
