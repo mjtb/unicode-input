@@ -1,3 +1,7 @@
+## 0.5.0
+
+* Make package compatible with Atom 1.0 API
+
 ## 0.4.2
 
 * :bug: Fix typo in keymap for windows (#2)
