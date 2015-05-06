@@ -45,7 +45,7 @@ class UnicodeInputView extends View
 
   confirm: ->
     hexValue = @miniEditor.getText()
-    editor = atom.workspace.getActiveEditor()
+    editor = atom.workspace.getActiveTextEditor()
 
     @cancel()
 
