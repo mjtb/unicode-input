@@ -1,3 +1,7 @@
+## 0.5.1
+
+* :bug: Fix typo in windows keybinding
+
 ## 0.5.0
 
 * Make package compatible with Atom 1.0 API
